@@ -1,0 +1,19 @@
+/.idea/
+.project*
+.svn
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+.stignore
+.stfolder
+.vscode
+.history
+*.swp
+tags
+
+# ignore with prefix of file name
+_*
+
+# apollo config or cache file
+.*_default

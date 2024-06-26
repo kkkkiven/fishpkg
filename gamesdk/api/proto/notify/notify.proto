@@ -1,0 +1,32 @@
+syntax = "proto3";
+option go_package="../notify";
+package pb;
+
+// ReqRegister 客户端请求注册，函数ID：1
+message ReqRegister {
+	map<string, string> user = 1; //  userId, sign, ...
+	map<string,bytes> ext = 10;
+}
+
+// RspRegister 服务端响应注册，函数ID：2
+message RspRegister {
+	int32 code = 1;
+	string msg = 2;
+	map<string,bytes> ext = 10;
+}
+
+// PushNotifyMsg 服务端推送通知消息，函数ID：3
+message PushNotifyMsg {
+	int32 type = 1;                // 消息类型：吐司消息，充值消息，邮件提醒，公共提醒，其他
+	bytes notifyMsg = 2;          // 消息内容：内容格式由业务服务与客户端约定
+	map<string,bytes> ext = 10;    // 扩展字段
+}
+
+// NotifyMsg 业务服务产生通知消息，发送至kafka的t_notify话题，推送服务消费消息并路由至客户端
+message NotifyMsg {
+	int64 userId = 1;                      // user id：0广播给平台所有用户；其他单播给平台指定用户
+	int32 appId = 2;                       // app id：0全平台消息（不支持），其他指定平台消息
+	int32 type = 3;                        // 消息类型：吐司消息，充值消息，邮件提醒，公共提醒，其他
+	bytes notifyMsg = 4;                  // 消息内容：内容格式由业务服务与客户端约定
+	map<string,bytes> ext = 10;            // 扩展字段
+} 

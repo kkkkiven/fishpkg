@@ -1,0 +1,10 @@
+syntax = "proto3";
+package spropb;
+option go_package="../spropb";
+
+// RspCommon 公共响应数据
+message RspCommon {
+	int32 code = 1; // 响应码
+	string msg = 2; // 响应描述
+	map<string,bytes> ext = 10; // 预留扩展字段
+}

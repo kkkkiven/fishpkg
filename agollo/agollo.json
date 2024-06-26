@@ -1,0 +1,11 @@
+{
+  "appId": "hallapi",
+  "cluster" : "fish40",
+  "namespaceNames" : [
+    "server.yaml",
+    "wxSubscribe.yaml"
+  ],
+  "ip" : "http://10.100.4.198/config",
+  "oneNamespaceMode" : false,
+  "tagname" : "yaml"
+}
