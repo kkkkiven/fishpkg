@@ -4,8 +4,8 @@ import (
 	"encoding/binary"
 	"time"
 
-	"git.yuetanggame.com/zfish/fishpkg/logs"
-	p "git.yuetanggame.com/zfish/fishpkg/sprotocol/http"
+	"github.com/kkkkiven/fishpkg/logs"
+	p "github.com/kkkkiven/fishpkg/sprotocol/http"
 )
 
 type Notify struct {

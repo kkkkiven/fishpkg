@@ -1,7 +1,7 @@
 package core
 
 import (
-	p "git.yuetanggame.com/zfish/fishpkg/sprotocol/core"
+	p "github.com/kkkkiven/fishpkg/sprotocol/core"
 )
 
 type Filter struct {

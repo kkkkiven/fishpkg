@@ -6,19 +6,19 @@ import (
 	"net"
 	"time"
 
-	"git.yuetanggame.com/zfish/fishpkg/gamesdk/internal/message"
+	"github.com/kkkkiven/fishpkg/gamesdk/internal/message"
 
-	ntf "git.yuetanggame.com/zfish/fishpkg/gamesdk/api/proto/notify"
-	_ "git.yuetanggame.com/zfish/fishpkg/gamesdk/internal/handler"
-	"git.yuetanggame.com/zfish/fishpkg/gamesdk/internal/server"
-	"git.yuetanggame.com/zfish/fishpkg/gamesdk/pkg/config"
-	"git.yuetanggame.com/zfish/fishpkg/gamesdk/pkg/errors"
-	"git.yuetanggame.com/zfish/fishpkg/gamesdk/pkg/game"
-	"git.yuetanggame.com/zfish/fishpkg/gamesdk/pkg/types"
-	"git.yuetanggame.com/zfish/fishpkg/logs"
-	sdk "git.yuetanggame.com/zfish/fishpkg/servicesdk/core"
-	"git.yuetanggame.com/zfish/fishpkg/sprotocol/core"
 	pb "github.com/golang/protobuf/proto"
+	ntf "github.com/kkkkiven/fishpkg/gamesdk/api/proto/notify"
+	_ "github.com/kkkkiven/fishpkg/gamesdk/internal/handler"
+	"github.com/kkkkiven/fishpkg/gamesdk/internal/server"
+	"github.com/kkkkiven/fishpkg/gamesdk/pkg/config"
+	"github.com/kkkkiven/fishpkg/gamesdk/pkg/errors"
+	"github.com/kkkkiven/fishpkg/gamesdk/pkg/game"
+	"github.com/kkkkiven/fishpkg/gamesdk/pkg/types"
+	"github.com/kkkkiven/fishpkg/logs"
+	sdk "github.com/kkkkiven/fishpkg/servicesdk/core"
+	"github.com/kkkkiven/fishpkg/sprotocol/core"
 )
 
 func GetServer() *server.Server {
@@ -233,11 +233,13 @@ func ReplaceBadWord(tc context.Context, str string, ext ...map[string][]byte) (s
 
 // PushMatchScore 上传比赛积分
 // matchType 比赛类型 1    娜迦千倍（周清）
-//             2  娜迦至尊(周清)
-//             3  鱼券赛(小时清)
-//             4  水晶赛(小时清)
-//             5  弹头赛(小时清)
-//             6  炸弹乐园(周清)
+//
+//	2  娜迦至尊(周清)
+//	3  鱼券赛(小时清)
+//	4  水晶赛(小时清)
+//	5  弹头赛(小时清)
+//	6  炸弹乐园(周清)
+//
 // expire 过期时间
 func PushMatchScore(tc context.Context, playID int64, matchType int, score int, expire int) error {
 	return sdk.Client().PushMatchScore(tc, playID, matchType, score, expire)
@@ -246,9 +248,10 @@ func PushMatchScore(tc context.Context, playID int64, matchType int, score int, 
 // Broadcast 全游戏平台广播
 // 发送全游戏平台广播, 广播内容完全透传
 // 要接收广播内容，需实现 Broadcaster接口
-// type Broadcaster interface {
-//	OnBroadcast(msgBody []byte)
-// }
+//
+//	type Broadcaster interface {
+//		OnBroadcast(msgBody []byte)
+//	}
 func Broadcast(msgId uint32, body []byte) error {
 	return sdk.SendBroadcastFish(context.Background(), 5, message.GWMSGBroadcastGame, msgId, body)
 }

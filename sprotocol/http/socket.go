@@ -7,7 +7,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"git.yuetanggame.com/zfish/fishpkg/logs"
+	"github.com/kkkkiven/fishpkg/logs"
 
 	"github.com/pkg/errors"
 )

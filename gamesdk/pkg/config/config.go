@@ -3,7 +3,7 @@ package config
 import (
 	"sync/atomic"
 
-	. "git.yuetanggame.com/zfish/fishpkg/gamesdk/pkg/types"
+	. "github.com/kkkkiven/fishpkg/gamesdk/pkg/types"
 )
 
 // EntityServer 服务配置

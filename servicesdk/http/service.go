@@ -7,11 +7,11 @@ import (
 	"strings"
 	"sync"
 
-	"git.yuetanggame.com/zfish/fishpkg/logs"
-	"git.yuetanggame.com/zfish/fishpkg/servicesdk/http/helper"
-	"git.yuetanggame.com/zfish/fishpkg/servicesdk/pkg/etcd"
-	p "git.yuetanggame.com/zfish/fishpkg/sprotocol/http"
-	"git.yuetanggame.com/zfish/fishpkg/utils"
+	"github.com/kkkkiven/fishpkg/logs"
+	"github.com/kkkkiven/fishpkg/servicesdk/http/helper"
+	"github.com/kkkkiven/fishpkg/servicesdk/pkg/etcd"
+	p "github.com/kkkkiven/fishpkg/sprotocol/http"
+	"github.com/kkkkiven/fishpkg/utils"
 
 	json "github.com/json-iterator/go"
 )

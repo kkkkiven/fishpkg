@@ -10,18 +10,18 @@ import (
 
 	jsoniter "github.com/json-iterator/go"
 
-	gameproto "git.yuetanggame.com/zfish/fishpkg/gamesdk/api/proto/game"
-	"git.yuetanggame.com/zfish/fishpkg/gamesdk/internal/message"
-	"git.yuetanggame.com/zfish/fishpkg/gamesdk/internal/server"
-	"git.yuetanggame.com/zfish/fishpkg/gamesdk/internal/utils"
-	"git.yuetanggame.com/zfish/fishpkg/gamesdk/pkg/config"
-	errs "git.yuetanggame.com/zfish/fishpkg/gamesdk/pkg/errors"
-	"git.yuetanggame.com/zfish/fishpkg/gamesdk/pkg/game"
-	"git.yuetanggame.com/zfish/fishpkg/logs"
-	sdk "git.yuetanggame.com/zfish/fishpkg/servicesdk/core"
-	usr "git.yuetanggame.com/zfish/fishpkg/servicesdk/core/pb/userapi"
-	pc "git.yuetanggame.com/zfish/fishpkg/sprotocol/core"
 	pb "github.com/golang/protobuf/proto"
+	gameproto "github.com/kkkkiven/fishpkg/gamesdk/api/proto/game"
+	"github.com/kkkkiven/fishpkg/gamesdk/internal/message"
+	"github.com/kkkkiven/fishpkg/gamesdk/internal/server"
+	"github.com/kkkkiven/fishpkg/gamesdk/internal/utils"
+	"github.com/kkkkiven/fishpkg/gamesdk/pkg/config"
+	errs "github.com/kkkkiven/fishpkg/gamesdk/pkg/errors"
+	"github.com/kkkkiven/fishpkg/gamesdk/pkg/game"
+	"github.com/kkkkiven/fishpkg/logs"
+	sdk "github.com/kkkkiven/fishpkg/servicesdk/core"
+	usr "github.com/kkkkiven/fishpkg/servicesdk/core/pb/userapi"
+	pc "github.com/kkkkiven/fishpkg/sprotocol/core"
 )
 
 var json = jsoniter.ConfigCompatibleWithStandardLibrary

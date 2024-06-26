@@ -5,7 +5,7 @@ import (
 	"strings"
 	"time"
 
-	"git.yuetanggame.com/zfish/fishpkg/logs"
+	"github.com/kkkkiven/fishpkg/logs"
 
 	clientv3 "go.etcd.io/etcd/client/v3"
 )

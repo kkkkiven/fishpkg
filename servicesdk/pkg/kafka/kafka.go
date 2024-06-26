@@ -4,7 +4,7 @@ import (
 	"hash/fnv"
 	"time"
 
-	"git.yuetanggame.com/zfish/fishpkg/logs"
+	"github.com/kkkkiven/fishpkg/logs"
 
 	"github.com/Shopify/sarama"
 

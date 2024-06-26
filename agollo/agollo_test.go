@@ -1,15 +1,15 @@
 package agollo
 
 import (
-	`encoding/json`
-	`os`
-	`os/signal`
-	`syscall`
-	`testing`
+	"encoding/json"
+	"os"
+	"os/signal"
+	"syscall"
+	"testing"
 
-	`git.yuetanggame.com/zfish/fishpkg/logs`
-	`git.yuetanggame.com/zfish/fishpkg/servicesdk/core`
-	"git.yuetanggame.com/zfish/fishpkg/servicesdk/http"
+	"github.com/kkkkiven/fishpkg/logs"
+	"github.com/kkkkiven/fishpkg/servicesdk/core"
+	"github.com/kkkkiven/fishpkg/servicesdk/http"
 )
 
 // Conf 阿波罗配置

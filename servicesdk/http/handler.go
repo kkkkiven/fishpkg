@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"unsafe"
 
-	p "git.yuetanggame.com/zfish/fishpkg/sprotocol/http"
+	p "github.com/kkkkiven/fishpkg/sprotocol/http"
 )
 
 type Param struct {

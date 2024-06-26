@@ -5,8 +5,8 @@ import (
 	"errors"
 	"fmt"
 
-	pb "git.yuetanggame.com/zfish/fishpkg/servicesdk/core/pb/core"
-	p "git.yuetanggame.com/zfish/fishpkg/sprotocol/core"
+	pb "github.com/kkkkiven/fishpkg/servicesdk/core/pb/core"
+	p "github.com/kkkkiven/fishpkg/sprotocol/core"
 
 	"github.com/golang/protobuf/proto"
 )

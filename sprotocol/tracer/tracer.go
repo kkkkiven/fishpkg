@@ -10,8 +10,8 @@ import (
 	"sync"
 	"time"
 
-	"git.yuetanggame.com/zfish/fishpkg/logs"
-	"git.yuetanggame.com/zfish/fishpkg/utils"
+	"github.com/kkkkiven/fishpkg/logs"
+	"github.com/kkkkiven/fishpkg/utils"
 
 	"github.com/beinan/fastid"
 )

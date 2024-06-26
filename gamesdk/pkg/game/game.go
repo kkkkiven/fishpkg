@@ -5,8 +5,8 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"git.yuetanggame.com/zfish/fishpkg/gamesdk/pkg/errors"
-	"git.yuetanggame.com/zfish/fishpkg/logs"
+	"github.com/kkkkiven/fishpkg/gamesdk/pkg/errors"
+	"github.com/kkkkiven/fishpkg/logs"
 )
 
 type Broadcaster interface {
@@ -70,7 +70,7 @@ type Game interface {
 	// 外部操作普通道具和高级道具
 	OnOperatePropAndSeniorProp(playerID int64, option int32, opType string,
 		prop map[int32]int64, seniorProp map[int32]string, ext ...map[string][]byte) (
-		afterProp map[int32]int64,        /*操作后普通道具数量*/
+		afterProp map[int32]int64, /*操作后普通道具数量*/
 		afterSeniorProp map[int32]string, /*操作后高级道具数量*/
 		err error)
 
@@ -205,6 +205,7 @@ func OnBroadcast(msgID uint32, body []byte) {
 
 // 外部操作普通道具
 // 参数 data，结构如下
+//
 //	data["optype"] - 操作类型，如充值、看广告等
 //	data["option"] - 操作选项(位运算) 1: 要求必须登陆, 2: 允许在游戏中进行扣除操作
 //	data["prop"] - 道具列表 (增量)

@@ -11,15 +11,16 @@ import (
 	"errors"
 	"time"
 
-	"git.yuetanggame.com/zfish/fishpkg/utils/wuid/internal"
 	"github.com/globalsign/mgo"
 	"github.com/globalsign/mgo/bson"
+	"github.com/kkkkiven/fishpkg/utils/wuid/internal"
 )
 
 var wi *WUID
 
 /*
 Logger includes internal.Logger, while internal.Logger includes:
+
 	Info(args ...interface{})
 	Warn(args ...interface{})
 */

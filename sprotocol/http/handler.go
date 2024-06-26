@@ -10,12 +10,12 @@ import (
 	"strings"
 	"sync"
 
-	"git.yuetanggame.com/zfish/fishpkg/utils"
+	"github.com/kkkkiven/fishpkg/utils"
 
-	xutils "git.yuetanggame.com/zfish/fishpkg/servicesdk/pkg/utils"
-	"git.yuetanggame.com/zfish/fishpkg/sprotocol/tracer"
+	xutils "github.com/kkkkiven/fishpkg/servicesdk/pkg/utils"
+	"github.com/kkkkiven/fishpkg/sprotocol/tracer"
 
-	"git.yuetanggame.com/zfish/fishpkg/logs"
+	"github.com/kkkkiven/fishpkg/logs"
 	"github.com/pkg/errors"
 )
 

@@ -3,7 +3,7 @@ package game
 import (
 	"fmt"
 
-	"git.yuetanggame.com/zfish/fishpkg/sprotocol/core"
+	"github.com/kkkkiven/fishpkg/sprotocol/core"
 )
 
 // Player 定义了玩家基本数据,和底层连接和对应关系

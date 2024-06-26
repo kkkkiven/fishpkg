@@ -10,7 +10,7 @@ import (
 	"strconv"
 	"strings"
 
-	"git.yuetanggame.com/zfish/fishpkg/util"
+	"github.com/kkkkiven/fishpkg/util"
 )
 
 // NewNullString 返回一个带有Null值的数据库字符串

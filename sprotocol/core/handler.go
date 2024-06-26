@@ -8,9 +8,9 @@ import (
 	"runtime/debug"
 	"strings"
 
-	"git.yuetanggame.com/zfish/fishpkg/logs"
-	pb "git.yuetanggame.com/zfish/fishpkg/sprotocol/core/spropb"
-	"git.yuetanggame.com/zfish/fishpkg/sprotocol/tracer"
+	"github.com/kkkkiven/fishpkg/logs"
+	pb "github.com/kkkkiven/fishpkg/sprotocol/core/spropb"
+	"github.com/kkkkiven/fishpkg/sprotocol/tracer"
 
 	"github.com/golang/protobuf/proto"
 	"github.com/pkg/errors"

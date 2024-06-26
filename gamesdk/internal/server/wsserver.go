@@ -10,14 +10,14 @@ import (
 	"strings"
 	"time"
 
-	"git.yuetanggame.com/zfish/fishpkg/gamesdk/internal/utils"
-	"git.yuetanggame.com/zfish/fishpkg/gamesdk/pkg/config"
-	errs "git.yuetanggame.com/zfish/fishpkg/gamesdk/pkg/errors"
-	"git.yuetanggame.com/zfish/fishpkg/gamesdk/pkg/game"
-	"git.yuetanggame.com/zfish/fishpkg/logs"
-	sdk "git.yuetanggame.com/zfish/fishpkg/servicesdk/core"
-	"git.yuetanggame.com/zfish/fishpkg/sprotocol/core"
-	jutils "git.yuetanggame.com/zfish/fishpkg/utils"
+	"github.com/kkkkiven/fishpkg/gamesdk/internal/utils"
+	"github.com/kkkkiven/fishpkg/gamesdk/pkg/config"
+	errs "github.com/kkkkiven/fishpkg/gamesdk/pkg/errors"
+	"github.com/kkkkiven/fishpkg/gamesdk/pkg/game"
+	"github.com/kkkkiven/fishpkg/logs"
+	sdk "github.com/kkkkiven/fishpkg/servicesdk/core"
+	"github.com/kkkkiven/fishpkg/sprotocol/core"
+	jutils "github.com/kkkkiven/fishpkg/utils"
 	"golang.org/x/net/websocket"
 )
 

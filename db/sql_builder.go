@@ -9,7 +9,7 @@ import (
 	"errors"
 	"sync"
 
-	"git.yuetanggame.com/zfish/fishpkg/util"
+	"github.com/kkkkiven/fishpkg/util"
 )
 
 const (

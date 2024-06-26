@@ -9,9 +9,9 @@ import (
 	"sync"
 	"time"
 
-	"git.yuetanggame.com/zfish/fishpkg/logs"
-	. "git.yuetanggame.com/zfish/fishpkg/servicesdk/core/helper"
-	p "git.yuetanggame.com/zfish/fishpkg/sprotocol/core"
+	"github.com/kkkkiven/fishpkg/logs"
+	. "github.com/kkkkiven/fishpkg/servicesdk/core/helper"
+	p "github.com/kkkkiven/fishpkg/sprotocol/core"
 )
 
 type _GWStatus uint8

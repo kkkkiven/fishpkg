@@ -8,16 +8,16 @@ import (
 	"sync"
 	"time"
 
-	"git.yuetanggame.com/zfish/fishpkg/logs"
-	. "git.yuetanggame.com/zfish/fishpkg/servicesdk/core/pb/core"
-	"git.yuetanggame.com/zfish/fishpkg/servicesdk/pkg/etcd"
-	"git.yuetanggame.com/zfish/fishpkg/servicesdk/pkg/kafka"
-	u "git.yuetanggame.com/zfish/fishpkg/servicesdk/pkg/utils"
-	p "git.yuetanggame.com/zfish/fishpkg/sprotocol/core"
-	t "git.yuetanggame.com/zfish/fishpkg/sprotocol/tracer"
-	"git.yuetanggame.com/zfish/fishpkg/utils"
 	"github.com/Shopify/sarama"
 	"github.com/golang/protobuf/proto"
+	"github.com/kkkkiven/fishpkg/logs"
+	. "github.com/kkkkiven/fishpkg/servicesdk/core/pb/core"
+	"github.com/kkkkiven/fishpkg/servicesdk/pkg/etcd"
+	"github.com/kkkkiven/fishpkg/servicesdk/pkg/kafka"
+	u "github.com/kkkkiven/fishpkg/servicesdk/pkg/utils"
+	p "github.com/kkkkiven/fishpkg/sprotocol/core"
+	t "github.com/kkkkiven/fishpkg/sprotocol/tracer"
+	"github.com/kkkkiven/fishpkg/utils"
 )
 
 // EntityEtcd etcd配置项

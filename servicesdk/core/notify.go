@@ -3,8 +3,8 @@ package core
 import (
 	"time"
 
-	"git.yuetanggame.com/zfish/fishpkg/logs"
-	p "git.yuetanggame.com/zfish/fishpkg/sprotocol/core"
+	"github.com/kkkkiven/fishpkg/logs"
+	p "github.com/kkkkiven/fishpkg/sprotocol/core"
 )
 
 type Notify struct {

@@ -9,11 +9,11 @@ import (
 
 	jsoniter "github.com/json-iterator/go"
 
-	"git.yuetanggame.com/zfish/fishpkg/logs"
-	sdk "git.yuetanggame.com/zfish/fishpkg/servicesdk/core"
+	"github.com/kkkkiven/fishpkg/logs"
+	sdk "github.com/kkkkiven/fishpkg/servicesdk/core"
 
-	. "git.yuetanggame.com/zfish/fishpkg/gamesdk/pkg/errors"
-	. "git.yuetanggame.com/zfish/fishpkg/gamesdk/pkg/types"
+	. "github.com/kkkkiven/fishpkg/gamesdk/pkg/errors"
+	. "github.com/kkkkiven/fishpkg/gamesdk/pkg/types"
 )
 
 var json = jsoniter.ConfigCompatibleWithStandardLibrary

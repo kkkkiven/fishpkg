@@ -7,10 +7,10 @@ import (
 	"sync"
 	"time"
 
-	"git.yuetanggame.com/zfish/fishpkg/gamesdk/internal/message"
-	"git.yuetanggame.com/zfish/fishpkg/gamesdk/pkg/game"
-	"git.yuetanggame.com/zfish/fishpkg/logs"
-	tcp "git.yuetanggame.com/zfish/fishpkg/sprotocol/core"
+	"github.com/kkkkiven/fishpkg/gamesdk/internal/message"
+	"github.com/kkkkiven/fishpkg/gamesdk/pkg/game"
+	"github.com/kkkkiven/fishpkg/logs"
+	tcp "github.com/kkkkiven/fishpkg/sprotocol/core"
 	"golang.org/x/net/netutil"
 )
 

@@ -10,7 +10,7 @@ import (
 	"net"
 	"time"
 
-	"git.yuetanggame.com/zfish/fishpkg/util"
+	"github.com/kkkkiven/fishpkg/util"
 
 	"github.com/go-sql-driver/mysql"
 	"golang.org/x/crypto/ssh"

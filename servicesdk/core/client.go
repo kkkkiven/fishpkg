@@ -5,12 +5,12 @@ import (
 	"errors"
 	"fmt"
 
-	"git.yuetanggame.com/zfish/fishpkg/logs"
-	"git.yuetanggame.com/zfish/fishpkg/servicesdk/core/jsonmodel"
-	pbSMS "git.yuetanggame.com/zfish/fishpkg/servicesdk/core/pb/sms"
-	pbUA "git.yuetanggame.com/zfish/fishpkg/servicesdk/core/pb/userapi"
-	"git.yuetanggame.com/zfish/fishpkg/servicesdk/pkg/utils"
-	pCore "git.yuetanggame.com/zfish/fishpkg/sprotocol/core"
+	"github.com/kkkkiven/fishpkg/logs"
+	"github.com/kkkkiven/fishpkg/servicesdk/core/jsonmodel"
+	pbSMS "github.com/kkkkiven/fishpkg/servicesdk/core/pb/sms"
+	pbUA "github.com/kkkkiven/fishpkg/servicesdk/core/pb/userapi"
+	"github.com/kkkkiven/fishpkg/servicesdk/pkg/utils"
+	pCore "github.com/kkkkiven/fishpkg/sprotocol/core"
 
 	"github.com/golang/protobuf/proto"
 	jsoniter "github.com/json-iterator/go"

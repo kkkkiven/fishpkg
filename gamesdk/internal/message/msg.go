@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"sync"
 
-	"git.yuetanggame.com/zfish/fishpkg/gamesdk/api/proto/game"
 	"github.com/golang/protobuf/proto"
+	"github.com/kkkkiven/fishpkg/gamesdk/api/proto/game"
 )
 
 // ST_USER_API UserApi服务类型

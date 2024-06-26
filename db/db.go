@@ -7,7 +7,7 @@ import (
 	"context"
 	"database/sql"
 
-	"git.yuetanggame.com/zfish/fishpkg/util"
+	"github.com/kkkkiven/fishpkg/util"
 	"golang.org/x/crypto/ssh"
 )
 
