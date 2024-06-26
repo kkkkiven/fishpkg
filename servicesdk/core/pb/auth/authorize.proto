@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package="../auth";
+package pb;
+
+// ReqAuthorize 授权验证请求
+message ReqAuthorize {
+	int64 userid = 1;
+	string code = 2;
+	string appcode = 3;
+}
+
+// RespAuthorize 授权验证响应
+message RespAuthorize {
+	int32 code = 1;
+	string msg = 2;
+	string token =3;
+	map<string,string> session = 4; // session信息
+}

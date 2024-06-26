@@ -1,0 +1,35 @@
+syntax = "proto3";
+package gpb;
+
+message ReqSend {
+    int64 userid = 1;
+    string phone = 2;
+    string purpose = 3; // 验证码用途
+    int64 ip = 4; // 客户端IP
+    map<string,string> ext = 7; // 扩展字段
+}
+
+message RespSend {
+    int32 code = 1; // 非0为出错
+    string msg = 2; // 针对发送验证码请求, 如果 code==0 那么此值为验证码标识串, 需在 verify 中传回
+    int32 interval = 3; // 每次验证码发送的间隔
+    int32 surplus = 4; // 距下次发送剩余的秒数
+    string token = 5; // 唯一标识串
+    map<string,string> ext = 6; // 扩展字段
+}
+
+message ReqVerify {
+    int64 userid = 1;
+    string phone = 2;
+    string token = 3; // 发送接口返回的标识串
+    string content = 4;  // 验证码
+    string purpose = 5; // 验证码用途
+    int64 ip = 6; // 客户端IP
+    map<string,string> ext = 7; // 扩展字段
+}
+
+message RespVerify {
+    int32 code = 1; // 非0为出错
+    string msg = 2; // 针对发送验证码请求, 如果 code==0 那么此值为验证码标识串, 需在 verify 中传回
+    map<string,string> ext = 3; // 扩展字段
+}

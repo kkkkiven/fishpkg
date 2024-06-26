@@ -1,0 +1,99 @@
+// Copyright (c) 2020. Homeland Interactive Technology Ltd. All rights reserved.
+
+package db
+
+import (
+	"database/sql"
+
+	_ "github.com/denisenkom/go-mssqldb"
+)
+
+// ExecProc 执行存储过程, 返回受影响的行数
+func (dba *Database) ExecProc(
+	procName string, params ...interface{}) (int64, error) {
+
+	result, err := dba.Exec(
+		"EXEC "+procName+" "+dba.GetProcPlaceholder(len(params)), params...)
+
+	if err != nil {
+		return 0, err
+	}
+	affected, err := result.RowsAffected()
+	if err != nil {
+		return 0, err
+	}
+	lastinsertid, err := result.LastInsertId()
+	if err != nil {
+		return affected, nil
+	}
+	return lastinsertid, nil
+}
+
+// GetExecProcErr 执行存储过程, 返回是否在执行过程中出现错误
+func (dba *Database) GetExecProcErr(
+	procName string, params ...interface{}) error {
+
+	_, err := dba.ExecProc(procName, params...)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+// ProcQuery 通过存储过程查询记录
+func (dba *Database) ProcQuery(
+	procName string, params ...interface{}) (rows *sql.Rows, err error) {
+
+	rows, err = dba.Query(
+		"EXEC "+procName+" "+dba.GetProcPlaceholder(len(params)), params...)
+	return
+}
+
+// ProcQueryRow 通过存储过程查询单条记录
+func (dba *Database) ProcQueryRow(
+	procName string, params ...interface{}) *sql.Row {
+
+	return dba.QueryRow(
+		"EXEC "+procName+" "+dba.GetProcPlaceholder(len(params)), params...)
+}
+
+// ProcStatus 调用存储过程并获取最终的执行状态码和提示信息
+func (dba *Database) ProcStatus(
+	procName string, params ...interface{}) (int, string) {
+
+	var status int
+	var msg string
+	err := dba.QueryRow(
+		"EXEC "+procName+" "+dba.GetProcPlaceholder(len(params)), params...).
+		Scan(&status, &msg)
+	if err != nil {
+		return -99, err.Error()
+	}
+	return status, msg
+}
+
+// ProcSelect 通过存储过程查询结果集
+func (dba *Database) ProcSelect(
+	procName string, params ...interface{}) (Results, error) {
+	return dba.Select(
+		"EXEC "+procName+" "+dba.GetProcPlaceholder(len(params)), params...)
+}
+
+// ProcSelectOne 通过存储查询一行不定字段的结果
+func (dba *Database) ProcSelectOne(
+	procName string, params ...interface{}) (OneRow, error) {
+	return dba.SelectOne(
+		"EXEC "+procName+" "+dba.GetProcPlaceholder(len(params)), params...)
+}
+
+// GetProcPlaceholder 按照指定数量生成调用存储过程时所用的参数占位符
+func (dba *Database) GetProcPlaceholder(count int) (placeholder string) {
+	placeholder = ""
+	for i := 0; i < count; i++ {
+		if i > 0 {
+			placeholder += ","
+		}
+		placeholder += "?"
+	}
+	return
+}

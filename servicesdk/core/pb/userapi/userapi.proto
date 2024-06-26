@@ -1,0 +1,777 @@
+syntax = "proto3";
+package pb;
+
+
+// ReqFields 获取用户基础属性信息
+message ReqFields {
+	int64 id = 1;
+	repeated string fields = 2;
+	map<string, bytes> ext = 10;
+}
+
+// RspFields 响应用户基础属性信息
+message RspFields {
+	int32 code = 1;
+	string msg = 2;
+	map<string, string> info = 3;  
+	map<string, bytes> ext = 10;
+}
+
+// ReqUsersFields 批量获取用户基础属性信息
+message ReqUsersFields {
+	int64 id = 1;
+	repeated int64 ids = 2;
+	repeated string fields = 3;
+	map<string, bytes> ext = 10;
+}
+
+// UserFields 获取基础属性信息
+message UserFields {
+    map<string, string> info = 1;
+}
+
+// UserExts 获取玩家扩展属性信息
+message UserExts {
+	map<string, bytes> ext = 1;
+}
+
+// RspUsersFields 响应批量获取用户基础属性信息
+message RspUsersFields {
+	int32 code = 1;
+	string msg = 2;
+	map<int64,UserFields> usersInfo = 3;  
+	map<int64,UserExts> usersExt = 10;
+}
+
+// ReqUsersFieldsEx 批量获取用户基础属性&游戏属性信息
+message ReqUsersFieldsEx {
+	int64 id = 1;
+	string gameName = 2;
+	repeated int64 ids = 3;
+	repeated string fields = 4;
+	repeated string gameFields = 5;
+	map<string, bytes> ext = 10;
+}
+
+// RspUsersFieldsEx 响应批量获取用户基础属性&游戏属性信息
+message RspUsersFieldsEx {
+	int32 code = 1;
+	string msg = 2;
+	map<int64,UserFields> usersInfo = 3;  
+	map<int64,string> gameInfo = 4;
+	map<int64,UserExts> usersExt = 10;
+}
+
+
+// ReqProps 获取用户道具信息
+message ReqProp {
+	int64 id = 1;
+	repeated int32 prop = 2;
+	map<string, bytes> ext = 10;
+}
+
+// RspPops 响应用户道具信息
+message RspProp {	
+	int32 code = 1;
+	string msg = 2;
+	map<int32, int64> prop = 3;
+	map<string, bytes> ext = 10;
+}
+
+
+// UserPropFields 获取基础道具信息
+message UserPropFields {
+    map<int32, int64> prop = 1;
+}
+
+// ReqBatchProp 批量获取用户基础信息&基础道具信息
+message ReqBatchInfoAndProp {
+	int64 id = 1;
+	repeated int64 ids = 2;
+	repeated string fields = 3;
+	repeated int32 prop = 4;
+	map<string, bytes> ext = 10;
+}
+
+// RspBatchInfoAndProp 响应批量获取用户基础信息和基础道具信息
+message RspBatchInfoAndProp {	
+	int32 code = 1;
+	string msg = 2;
+	map<int64,UserFields> usersInfo = 3;  
+	map<int64, UserPropFields> usersProp = 4;
+	map<string, bytes> ext = 10;
+}
+
+// ReqBatchInfosAndProp 批量获取用户基础信息&基础道具信息&游戏属性
+message ReqBatchInfosAndProp {
+	int64 id = 1;
+	repeated int64 ids = 2;
+	string gameName = 3;
+	repeated string fields = 4;
+	repeated int32 prop = 5;
+	repeated string gameFields = 6;
+	map<string, bytes> ext = 10;
+}
+
+// RspBatchInfosAndProp 响应批量获取用户基础信息和基础道具信息和游戏属性
+message RspBatchInfosAndProp {	
+	int32 code = 1;
+	string msg = 2;
+	map<int64,UserFields> usersInfo = 3;  
+	map<int64, UserPropFields> usersProp = 4;
+	map<int64,string> gameInfo = 5;
+	map<string, bytes> ext = 10;
+}
+
+// ReqAll 获取用户基础属性与道具信息
+message ReqAll {
+	int64 id = 1;
+	repeated string fields = 2;
+	repeated int32 prop = 3;
+	repeated int32 advancedProp = 4;
+	string gameName = 5;
+	repeated string gameFields = 6;
+	map<string, bytes> ext = 10;
+}
+
+// RspAll 响应用户基础属性与道具信息
+message RspAll {
+	int32 code = 1;
+	string msg = 2;	
+	map<string, string> info = 3;
+	map<int32, int64> prop = 4;
+	map<int32, string> advancedProp = 5;
+	string gameInfo = 6;
+	map<string, bytes> ext = 10;
+}
+
+// ReqSetFields 设置用户基础属性信息
+message ReqSetFields {
+	int64 id = 1;
+	int32 appid = 2; 	 // 仅用于记录
+	int32 channelid = 3; // 仅用于记录
+	map<string, string> info = 4;
+	map<string, bytes> ext = 10;
+}
+
+// RspSetFields 响应设置用户基础属性信息
+message RspSetFields {
+	int32 code = 1;
+	string msg = 2;
+	map<string, bytes> ext = 10;
+}
+
+// ReqSetProps 设置用户道具信息
+message ReqSetProp {
+	int64 id = 1;
+	int32 appid = 2;
+	int32 channelid = 3;
+	map<int32, int64> prop = 4;
+	map<string, bytes> ext = 10;
+}
+
+// RspSetProps 响应设置用户道具信息
+message RspSetProp {
+	int32 code = 1;
+	string msg = 2;
+	map<string, bytes> ext = 10;
+}
+
+// ReqSetAll 设置用户基础属性与道具信息
+message ReqSetAll {
+	int64 id = 1;
+	int32 appid = 2;
+	int32 channelid = 3;
+	map<string, string> info = 4;
+	map<int32, int64> prop = 5;
+	map<int32, string> adProp = 6;
+	map<string, bytes> ext = 10;
+}
+
+// RspSetAll 响应设置用户基础属性与道具信息
+message RspSetAll {
+	int32 code = 1;
+	string msg = 2;
+	map<string, bytes> ext = 10;
+}
+
+// ReqSetPass 设置用户密码	
+message ReqSetPass {
+	int64 id = 1;
+	string pass = 2;
+	map<string, bytes> ext = 10;
+}
+
+// RspSetPass 响应设置用户密码	
+message RspSetPass {
+	int32 code = 1;
+	string msg = 2;	
+	map<string, bytes> ext = 10;
+}
+
+// ReqUpdatePass 更新用户密码
+message ReqUpdatePass {
+	int64 id = 1;
+	string oldPass = 2;
+	string newPass = 3;
+	map<string, bytes> ext = 10;
+}
+
+// RspUpdatePass 响应更新用户密码
+message RspUpdatePass {
+	int32 code = 1;
+	string msg = 2;
+	map<string, bytes> ext = 10;
+}
+
+
+// ReqOpProps 操作用户道具
+message ReqOpProp {
+	int64 id = 1;
+	int32 appid = 2;
+	int32 channelid = 3;
+	string optype = 4;           // 操作类型，如充值、看广告等
+	int32 option = 5;            // 操作选项(位运算) 1: 要求必须登陆, 2: 允许在游戏中进行扣除操作
+	map<int32, int64> prop = 6;
+	map<string, bytes> ext = 10;
+}
+
+// RspOpProps 响应操作用户道具
+message RspOpProp {
+	int32 code = 1;
+	string msg = 2;
+	map<int32, int64> prop = 3;	
+	map<string, bytes> ext = 10;
+}
+
+// ReqNotifyOpProps 通知游戏服务操作道具请求
+message ReqNotifyOpProp {
+	int64 id = 1;
+	string optype = 2;
+	int32 option = 3;
+	map<int32, int64> prop = 4;
+	map<string, bytes> ext = 10;
+}
+
+// RecordProp 道具操作值记录
+message RecordProp {
+	int64 newProp = 1;
+	int64 oldProp = 2;
+}
+
+// RspNotifyOpProps 游戏服务响应操作道具结果
+message RspNotifyOpProp {
+	int32 code = 1;
+	string msg = 2;	
+	map<int32, RecordProp> prop = 3;
+	map<string, bytes> ext = 10;
+}
+
+
+// ReqEnterGame 请求进入游戏
+message ReqEnterGame {
+	int64 id = 1;
+	string gid = 2;
+	string roomId = 3;
+	repeated string fields = 4;
+	repeated int32 prop = 5;
+	repeated int32 advancedProp = 6;
+	string gameName = 7;
+	map<string, bytes> ext = 10;
+}
+
+// RspEnterGame 响应进入游戏
+message RspEnterGame {
+	int32 code = 1;
+	string msg = 2;
+	string gid = 3;
+	string roomId = 4;
+	map<string, string> info = 5;
+	map<int32, int64> prop =6;
+	map<int32, string> advancedProp = 7;
+	string gameInfo = 8;
+	map<string, bytes> ext = 10;
+}
+
+// ReqEnterGameEx 请求进入游戏
+message ReqEnterGameEx {
+	int64 id = 1;
+	string gid = 2;
+	string roomId = 3;
+	repeated string fields = 4;
+	repeated int32 prop = 5;
+	repeated int32 advancedProp = 6;
+	repeated int32 advancedPropEx = 7;
+	string gameName = 8;
+	map<string, bytes> ext = 9;
+}
+
+// RspEnterGameEx 响应进入游戏
+message RspEnterGameEx {
+	int32 code = 1;
+	string msg = 2;
+	string gid = 3;
+	string roomId = 4;
+	map<string, string> info = 5;
+	map<int32, int64> prop =6;
+	map<int32, string> advancedProp = 7;
+	map<int32, string> advancedPropEx = 8;
+	string gameInfo = 9;
+	map<string, bytes> ext = 10;
+}
+
+
+// ReqLeaveGame 请求离开游戏
+message ReqLeaveGame {
+	int64 id = 1;
+	map<string, bytes> ext = 10;
+}
+
+// RspLeaveGame 响应离开游戏
+message RspLeaveGame {
+	int32 code = 1;
+	string msg = 2;
+	map<string, bytes> ext = 10;
+}
+
+// ReqIsReg 请求检查用户名是否被注册
+message ReqUsernameExist {
+	string username = 1;
+	map<string, bytes> ext = 10;
+}
+
+// RspIsReg 响应检查用户名是否被注册
+message RspUsernameExist {
+	int32 code = 1;
+	string msg = 2;
+	bool existed = 3;
+	map<string, bytes> ext = 10;
+}
+
+// ReqGameInfo 请求游戏信息
+message ReqGameInfo {
+	int64 id = 1;
+	string name = 2;
+	repeated string fields = 3;
+	map<string, bytes> ext = 10;
+}
+
+// RspGameInfo 响应游戏信息
+message RspGameInfo {
+	int32 code = 1;
+	string msg = 2;
+	string info = 3;
+	map<string, bytes> ext = 10;
+}
+
+// ReqSetGameInfo 请求设置游戏信息
+message ReqSetGameInfo {
+	int64 id = 1;
+	int32 appid = 2;
+	int32 channelid = 3;
+	string name = 4;
+	string info = 5;
+	map<string, bytes> ext = 10;	
+}
+
+// RspSetGameInfo 响应设置游戏信息
+message RspSetGameInfo {
+	int32 code = 1;
+	string msg = 2;
+	map<string, bytes> ext = 10;	
+}
+
+// ReqOpGameInfo 请求操作游戏信息
+message ReqOpGameInfo {
+	int64 id = 1;
+	int32 appid = 2;
+	int32 channelid = 3;
+	string optype = 4;
+	int32 option = 5;
+	string name = 6;
+	map<string, int64> info = 7;
+	map<string, bytes> ext = 10;
+}
+
+// RspOpGameInfo 响应操作游戏信息
+message RspOpGameInfo {
+	int32 code = 1;
+	string msg = 2;
+	map<string, int64> info = 3;  // 不返回，但是保留
+	map<string, bytes> ext = 10;
+}
+
+// ReqNotifyOpGame 通知游戏服操作游戏信息请求
+message ReqNotifyOpGame {
+	int64 id = 1;
+	string optype = 2;
+	int32 option = 3;
+	string name = 4;
+	map<string, int64> info = 5;
+	map<string, bytes> ext = 10;
+}
+
+// RspNotifyOpGame 游戏服响应操作游戏信息结果
+message RspNotifyOpGame {
+	int32 code = 1;
+	string msg = 2;
+	map<string, int64> info = 3;  // 不返回，但是保留
+	map<string, bytes> ext = 10;
+}
+
+// Field 
+message Field {
+	string Type = 1;
+	int32 Mask = 2;
+	string Value =3;
+}
+
+// SyncMsg KFK同步消息
+message SyncMsg {
+	int64 id = 1;
+	int64 timestamp = 2;
+	map<string, Field> info = 3;
+	map<int32, int64> prop = 4;
+	map<int32, string> advancedProp = 5;
+	map<int32, string> advancedPropEx = 6;
+	map<string, bytes> ext = 10;
+}
+
+// RecordProp 高级道具操作值记录
+message RecordAdProp {
+	string newProp = 1;
+	string oldProp = 2;
+}
+
+// AuditMsg KFK审计消息
+message AuditMsg {
+	int64 id = 1;
+	int64 timestamp = 2;
+	int32 appid = 3;
+	int32 channelid = 4;
+	string optype = 5;
+	int32 option = 6;
+	map<int32, int64> prop = 7;
+	map<int32, RecordProp> recordProp = 8;
+	map<string, bytes> propExt = 9;
+	map<int32, string> advancedProp = 10;
+	map<int32, RecordAdProp> recordAdProp = 11;
+	map<string, bytes> advancedPropExt = 12;
+}
+
+
+// AdvanceProp 高级道具
+message AdvancedProp {
+	int64 count = 1;
+	int64 timestamp = 2;
+	string ext = 3;
+}
+
+// ReqAdProp 请求获取高级道具
+message ReqAdProp {
+	int64 id = 1;
+	repeated int32 adProp = 2;
+	map<string, bytes> ext = 10;
+}
+
+// RspAProp 响应获取高级道具
+message RspAdProp {
+	int32 code = 1;
+	string msg = 2;
+	map<int32, string> adProp = 3; // key:道具id，value：高级道具json序列化后的字符串
+	map<string, bytes> ext = 10;	
+}
+
+// ReqSetAdProp 请求设置高级道具
+message ReqSetAdProp {
+	int64 id = 1;
+	int32 appid = 2;
+	int32 channelid = 3;
+	map<int32, string> adProp = 4;
+	map<string, bytes> ext = 10;
+}
+
+// RspSetAdProp 响应设置高级道具
+message RspSetAdProp {
+	int32 code = 1;
+	string msg = 2;
+	map<string, bytes> ext = 10;
+}
+
+// ReqOpAProp 请求操作高级道具
+message ReqOpAdProp {
+	int64 id = 1;
+	int32 appid = 2;
+	int32 channelid = 3;
+	string optype = 4;
+	int32 option = 5;
+	map<int32, string> adProp = 6;
+	map<string, bytes> ext = 10;
+}
+
+// RspOpAdProp 响应操作高级道具
+message RspOpAdProp {
+	int32 code = 1;
+	string msg = 2;
+	map<int32, string> adProp = 3;
+	map<string, bytes> ext = 10;
+}
+
+// ReqNotifyOpAdProp 通知游戏服操作高级道具请求
+message ReqNotifyOpAdProp {
+	int64 id = 1;
+	string optype = 2;
+	int32 option = 3;
+	map<int32, string> adProp = 4;
+	map<string, bytes> ext = 10;	
+}
+
+// RspNotifyOpAdProp 游戏服响应操作高级道具结果
+message RspNotifyOpAdProp {
+	int32 code = 1;
+	string msg = 2;
+	map<int32, string> adProp = 3;
+	map<string, bytes> ext = 10;	
+}
+
+// ReqOpPropAndAdProp 原子操作普通道具与高级道具
+message ReqOpPropAndAdProp {
+	int64 id = 1;
+	int32 appid = 2;
+	int32 channelid = 3;
+	string optype = 4;
+	int32 option = 5;
+	map<int32, int64> prop = 6;
+	map<int32, string> adProp = 7;
+	map<string, bytes> ext = 10;
+}
+
+// RspOpPropAndAdProp 响应原子操作普通道具与高级道具
+message RspOpPropAndAdProp {
+	int32 code = 1;
+	string msg = 2;
+	map<int32, int64> prop = 3;
+	map<int32, string> adProp = 4;
+	map<string, bytes> ext = 10;
+}
+
+// ReqKickOff 强制将玩家踢下线请求
+message ReqKickOff {
+	int64 id =1;  // 玩家id
+	string msg = 2; // 原因
+	map<string,bytes> ext =10;
+}
+
+// RspKickOff 强制将玩家踢下线回应
+message RspKickOff {
+	int32 code = 1;
+	string msg = 2;
+	map<string, bytes> ext = 10;
+}
+
+// ReqGiveUp 放弃比赛
+message ReqGiveUp {
+	int64 id =1; // 玩家ID
+	string msg = 2; // 原因
+	map<string,bytes> ext =10;
+}
+
+// RspGiveUp 放弃比赛响应
+message RspGiveUp{
+	int32 code = 1;
+	string msg = 2;
+	map<string,bytes> ext = 10;
+}
+
+// ReqHasBadWord 敏感词检查请求
+message ReqHasBadWord {
+	string content = 1;
+	map<string, bytes> ext = 10;
+}
+
+// RspHadBadWord 敏感词检查响应
+message RspHasBadWord {
+	int32 code = 1;
+	string msg = 2;
+	repeated string	words = 3;
+	map<string, bytes> ext = 10;
+}
+
+// ReqReplaceBadWord 敏感词替换请求
+message ReqReplaceBadWord {
+	string content = 1;
+	map<string, bytes> ext = 10;
+}
+
+// RspReplaceBadWord 敏感词替换响应
+message RspReplaceBadWord {
+	int32 code = 1;
+	string msg = 2;
+	string	content = 3;
+	map<string, bytes> ext = 10;	
+}
+
+// ReqCheckIdCardExisted 检查idcard是否存在的请求消息
+message ReqCheckIdCardExisted {
+	string idCard = 1;
+	map<string, bytes> ext = 10;
+}
+
+// ReqCheckIdCardExisted 检查idcard使用存在的响应消息
+message RspCheckIdCardExisted {
+	int32 code = 1;
+	string msg = 2;
+	bool existed = 3;
+	map<string, bytes> ext = 10;
+}
+
+// ReqGetUsersByPhoneNumber 获取通过手机号用户列表的请求消息
+message ReqGetUsersByPhoneNumber {
+	string phone = 1;
+	map<string, bytes> ext = 10;
+}
+
+// RspGetUsersByPhoneNumber 获取通过手机号用户列表的响应消息
+message RspGetUsersByPhoneNumber {
+	message user {
+		int64 id = 1;
+		string username = 2;
+		string nickname = 3;
+	}
+	int32 code = 1;
+	string msg = 2;
+	repeated user users = 3;
+	map<string, bytes> ext = 10;
+}
+
+// ReqAddDeputyAccount 添加辅助账号的请求消息
+message ReqAddDeputyAccount {
+	int64 id = 1;
+	string username = 2;
+	string password = 3;
+	int32 userfrom = 4;
+}
+
+// RspAddDeputyAccount 添加辅助账号的响应消息
+message RspAddDeputyAccount{
+	int32 code = 1;
+	string msg = 2;	
+}
+
+// ReqDelDeputyAccount 删除辅助账号的请求消息
+message ReqDelDeputyAccount {
+	int64 id = 1;
+	string username = 2;
+	int32 userfrom = 3;
+}
+
+// RspDelDeputyAccount 删除辅助账号的响应消息
+message RspDelDeputyAccount {
+	int32 code = 1;
+	string msg = 2;	
+	bool success = 3;
+}
+
+// ReqGetDeputyAccount 获取辅助账号的请求消息
+message ReqGetDeputyAccount {
+	int64 id = 1;
+	int32 userfrom = 2;
+}
+
+// RspGetDeputyAccount 获取辅助账号的响应消息
+message RspGetDeputyAccount {
+	int32 code = 1;
+	string msg = 2;	
+	repeated string username = 3;
+}
+
+// ReqNicknameIsReg 请求检查用户名是否被注册
+message ReqNicknameExist {
+	string nickname = 1;
+	map<string, bytes> ext = 10;
+}
+
+// RspNicknameIsReg 响应检查用户名是否被注册
+message RspNicknameExist {
+	int32 code = 1;
+	string msg = 2;
+	bool existed = 3;
+	map<string, bytes> ext = 10;
+}
+
+// RespCommon 公共响应
+message RespCommon {
+	int32 code = 1;
+	string msg = 2;	
+}
+
+
+message AdvancedPropEx {
+	int32 id = 1;
+	int64 count = 2;
+	int64 timestamp = 3;
+}
+
+message ReqAdPropsEx {
+	int64 id = 1;
+	repeated int32 adPropsEx = 2;
+	map<string, bytes> ext = 10;
+}
+
+message RspAdPropsEx {
+	int32 code = 1;
+	string msg = 2;
+	map<int32, string> adPropsEx = 3;
+}
+
+message ReqSetAdPropsEx {
+	int64 id = 1;
+	int32 appid = 2;
+	int32 channelid = 3;
+	map<int32, string> adPropsEx = 4;
+	map<string, bytes> ext = 10;
+}
+
+message RspSetAdPropsEx {
+	int32 code = 1;
+	string msg = 2;
+}
+
+message ReqAllEx {
+	int64 id = 1;
+	repeated string fields = 2;
+	repeated int32 props = 3;
+	repeated int32 adProps = 4;
+	repeated int32 adPropsEx = 5;
+	string gameName = 6;
+	repeated string gameFields = 7;
+	map<string, bytes> ext = 10;
+}
+
+message RspAllEx {
+	int32 code = 1;
+	string msg = 2;
+	map<string, string> info = 3;
+	map<int32, int64> props = 4;
+	map<int32, string> adProps = 5;
+	map<int32, string> adPropsEx = 6;
+	string gameInfo = 7;
+}
+
+message ReqSetAllEx {
+	int64 id = 1;
+	int32 appid = 2;
+	int32 channelid = 3;
+	map<string, string> info = 4;
+	map<int32, int64> props = 5;
+	map<int32, string> adProps = 6;
+	map<int32, string> adPropsEx = 7;
+	string gameName = 8;
+	string gameInfo = 9;
+	map<string, bytes> ext = 10;
+}
+
+message RspSetAllEx {
+	int32 code = 1;
+	string msg = 2;
+}
