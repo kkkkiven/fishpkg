@@ -1,4 +1,4 @@
-module git.yuetanggame.com/zfish/fishpkg
+module github.com/kkkkiven/fishpkg
 
 go 1.17
 
